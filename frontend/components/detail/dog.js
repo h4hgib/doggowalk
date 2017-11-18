@@ -24,7 +24,7 @@ let dataCursor = state.select(api.plural)
 export default class DogDetail extends DeepComponent {
   render() {
     let {havePendingRequests, item} = this.props
-    
+
 
     if (item) {
       return (
@@ -95,10 +95,10 @@ class Actions extends ShallowComponent {
             <Link to="dog-add" className="btn btn-sm btn-green" title="Add">
               <span className="fa fa-plus"></span>
             </Link>
-            <ItemLink to="dog-edit" params={{id: item.id}} className="btn btn-orange" title="Edit">
+            <ItemLink to="dog-edit" params={{id: item._id}} className="btn btn-orange" title="Edit">
               <span className="fa fa-edit"></span>
             </ItemLink>
-            <a className="btn btn-red" title="Remove" onClick={() => actions.removeItem(item.id)}>
+            <a className="btn btn-red" title="Remove" onClick={() => actions.removeItem(item._id)}>
               <span className="fa fa-times"></span>
             </a>
           </div>

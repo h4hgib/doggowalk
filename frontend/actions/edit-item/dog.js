@@ -12,7 +12,7 @@ export default function editItem(data) {
   console.debug(api.plural + `.editItem(${data.id})`)
 
   let item = parseAs(Dog, data)
-  let id = item.id
+  let id = item._id
 
   // Optimistic update
   let oldItem = itemsCursor.get(id)

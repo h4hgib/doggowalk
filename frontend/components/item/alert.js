@@ -34,7 +34,7 @@ export default class Item extends ShallowComponent {
 
     return (
       <div className={classes} {...this.props}>
-        {item.closable === false ? <CloseLink onClick={() => alertActions.removeItem(item.id)}/> : ""}
+        {item.closable === false ? <CloseLink onClick={() => alertActions.removeItem(item._id)}/> : ""}
         {item.message}
       </div>
     )

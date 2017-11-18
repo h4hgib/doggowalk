@@ -46,7 +46,7 @@ export default class DogAdd extends DeepComponent {
       .then(actions.addItem)
       .then(item => {
         alertActions.addItem({
-          message: "Dog added with id: " + item.id,
+          message: "Dog added with id: " + item._id,
           category: "success",
         })
       })

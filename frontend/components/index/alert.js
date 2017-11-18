@@ -17,7 +17,7 @@ export default class AlertIndex extends DeepComponent {
     return (
       <div className="special-layer top-right">
         <CSSTransitionGroup component="div" transitionName="fadeUp">
-          {map(item => <AlertItem item={item} key={item.id} animated={true}/>, items)}
+          {map(item => <AlertItem item={item} key={item._id} animated={true}/>, items)}
         </CSSTransitionGroup>
       </div>
     )

@@ -24,7 +24,7 @@ let validateFormDebounced = debounce(key => {
   loadData: () => {
     actions
       .establishItem()
-      .then(item => actions.resetEditForm(item.id))
+      .then(item => actions.resetEditForm(item._id))
   }
 })
 @branch({
@@ -51,7 +51,7 @@ export default class DogEdit extends DeepComponent {
       .then(actions.editItem)
       .then(item => {
         alertActions.addItem({
-          message: "Dog edited with id: " + item.id,
+          message: "Dog edited with id: " + item._id,
           category: "success",
         })
       })
@@ -64,7 +64,7 @@ export default class DogEdit extends DeepComponent {
   }
 
   handleReset() {
-    actions.resetEditForm(this.props.item.id)
+    actions.resetEditForm(this.props.item._id)
   }
 
   render() {
@@ -79,7 +79,7 @@ export default class DogEdit extends DeepComponent {
               <div className="row">
                 <div className="col-xs-12 col-sm-3">
                   <div className="thumbnail">
-                    <img src={"http://robohash.org/" + item.id + "?size=200x200"} width="200px" height="200px"/>
+                    <img src={"http://robohash.org/" + item._id + "?size=200x200"} width="200px" height="200px"/>
                   </div>
                 </div>
                 <div className="col-xs-12 col-sm-9">
@@ -262,10 +262,10 @@ class Actions extends ShallowComponent {
             <Link to="dog-add" className="btn btn-sm btn-green" title="Add">
               <span className="fa fa-plus"></span>
             </Link>
-            <ItemLink to="dog-detail" params={{id: item.id}} className="btn btn-blue" title="Detail">
+            <ItemLink to="dog-detail" params={{id: item._id}} className="btn btn-blue" title="Detail">
               <span className="fa fa-eye"></span>
             </ItemLink>
-            <a className="btn btn-red" title="Remove" onClick={() => actions.removeItem(item.id)}>
+            <a className="btn btn-red" title="Remove" onClick={() => actions.removeItem(item._id)}>
               <span className="fa fa-times"></span>
             </a>
           </div>
