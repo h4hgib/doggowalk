@@ -1,7 +1,7 @@
 import About from "./about"
 import Credits from "./credits"
-import Tech from "./tech"
+import Book from "./book"
 
 export {
-  About, Credits, Tech,
+  About, Credits, Book
 }

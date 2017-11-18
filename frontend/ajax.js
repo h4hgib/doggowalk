@@ -8,7 +8,7 @@ let ajaxQueueCursor = state.select("ajaxQueue")
 // We need to be sure that order of Backend responses is the same
 // as order of Frontend requests. Otherwise data consistency will break.
 // That's why each item is processed after previous one was handled
-// More sophisticated techniques will require declarations of data-dependencies
+// More sophisticated bookniques will require declarations of data-dependencies
 // (say Relay, GraphQL) because we need to know which endpoint provides which data
 // and which data requests may not block each other. We don't have this information presently.
 export function processAjaxQueue() {

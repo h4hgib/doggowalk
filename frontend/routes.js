@@ -3,7 +3,7 @@ import React from "react"
 // Eager Components
 import {Route, DefaultRoute, NotFoundRoute} from "react-router"
 import Body from "frontend/components/body"
-import {About, Tech, Credits} from "frontend/components/page"
+import {About, Book, Credits} from "frontend/components/page"
 import {NotFound} from "frontend/components/common"
 
 //Lazy Components
@@ -14,7 +14,7 @@ import {DogIndex, DogAdd, DogDetail, DogEdit} from "frontend/components/dog"
 export default (
   <Route path="/" handler={Body}>
     <DefaultRoute name="about" handler={About}/>
-    <Route path="/tech" name="tech" handler={Tech}/>
+    <Route path="/book" name="book" handler={Book}/>
     <Route path="/credits" name="credits" handler={Credits}/>
     <NotFoundRoute handler={NotFound}/>
 
