@@ -44,7 +44,7 @@ export default class DogDetail extends DeepComponent {
             <section className="container margin-top-lg">
               <div className="row">
                 <div className="col-xs-12 col-sm-3">
-                  <div className="thumbnail" >
+                  <div className="thumbnail">
                     <img src={item.image} width="300px"/>
                   </div>
                 </div>

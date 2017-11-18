@@ -5,7 +5,7 @@ import {Component, TextHolder} from "frontend/components/common"
 export default class Credits extends Component {
   render() {
     return (
-      <DocumentTitle title="React Ultimate :: Tech">
+      <DocumentTitle title="React Ultimate :: Book">
         <TextHolder>
           <section className="container page home">
             <h1>Credits</h1>
