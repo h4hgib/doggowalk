@@ -11,6 +11,13 @@ export default class DogItem extends ShallowComponent {
   render() {
     let item = this.props.item
 
+  var sadorhappy;
+  if (1<0) {
+    sadorhappy =  <img src="../public/sad_doggo.png" height="33" width="38" title="Not walked"></img>;
+  } else {
+    sadorhappy =  <img src="../public/happy_doggo.png" height="33" width="38" title="Recently walked"></img>;
+  }
+
     if (item) {
       return (
         <div key={item._id} className="col-sm-6 col-md-3">
@@ -25,6 +32,7 @@ export default class DogItem extends ShallowComponent {
             </div>
             <div className="panel-footer">
               <div className="clearfix">
+                 {sadorhappy}
                 <div className="btn-group btn-group-sm pull-right">
                   <Link to="dog-detail" params={{id: item._id}} className="btn btn-blue" title="Detail">
                     <span className="fa fa-eye"></span>
