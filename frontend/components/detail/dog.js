@@ -24,9 +24,19 @@ let dataCursor = state.select(api.plural)
 export default class DogDetail extends DeepComponent {
   render() {
     let {havePendingRequests, item} = this.props
-
+  
 
     if (item) {
+        var today = new Date();
+        var birthDate = new Date(item.birth_date);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) 
+        {
+            age--;
+        }
+        console.log(age);
+
       return (
         <DocumentTitle title={"Detail " + item.name}>
           <div>
@@ -34,8 +44,8 @@ export default class DogDetail extends DeepComponent {
             <section className="container margin-top-lg">
               <div className="row">
                 <div className="col-xs-12 col-sm-3">
-                  <div className="thumbnail">
-                    <img src={item.image} width="200px" height="200px"/>
+                  <div className="thumbnail" >
+                    <img src={item.image} width="300px"/>
                   </div>
                 </div>
                 <div className="col-xs-12 col-sm-9">
@@ -46,7 +56,7 @@ export default class DogDetail extends DeepComponent {
                     <dt>Gender</dt>
                     <dd>{item.gender}</dd>
                     <dt>Age</dt>
-                    <dd>{item.birth_date}</dd>
+                    <dd>{age} years old</dd>
                     <dt>Strength</dt>
                     <dd>{item.strength}</dd>
                     <dt>Size</dt>
@@ -56,7 +66,7 @@ export default class DogDetail extends DeepComponent {
                     <dt>Activity Level</dt>
                     <dd>{item.activity_level}</dd>
                     <dt>More info</dt>
-                    <dd>{item.description}</dd>
+                    <dd><li><a href={item.description}>{item.description}</a></li></dd>
                   </dl>
                 </div>
               </div>
