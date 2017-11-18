@@ -8,9 +8,9 @@ export default class Menu extends Component {
       <nav className={"navbar-collapse navbar-page-header navbar-right effect brackets collapse" + (this.props.menuCollapse ? "in" : "")}>
         <ul className="nav navbar-nav">
           <li><Link to="about">About</Link></li>
-          <li><Link to="robot-index">Robots</Link></li>
-          <li><Link to="monster-index">Monsters</Link></li>
-          <li><Link to="tech">Tech</Link></li>
+          <li><Link to="robot-index">Doggos</Link></li>
+          <li><Link to="monster-index">Cattos</Link></li>
+          <li><Link to="tech">Book the Activity</Link></li>
           <li><Link to="credits">Credits</Link></li>
         </ul>
       </nav>

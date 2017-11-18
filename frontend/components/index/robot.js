@@ -40,7 +40,7 @@ export default class RobotIndex extends DeepComponent {
         <div>
           <Actions {...this.props}/>
           <section className="container">
-            <h1>Robots</h1>
+            <h1>Doggos</h1>
             {pagination}
             <div className="row">
               {map(item => <RobotItem item={item} key={item.id}/>, items)}

@@ -5,97 +5,49 @@ import {Component, TextHolder} from "frontend/components/common"
 export default class About extends Component {
   render() {
     return (
-      <DocumentTitle title="React Ultimate :: About">
+      <DocumentTitle title="React Ultimate :: tetet">
         <TextHolder>
           <section className="container page home">
             <h1>About</h1>
 
-            <h3>Code</h3>
+            {/*<h3>Join Us</h3>*/}
             <p>
-              Ultimate JavaScript.
-              Newest ES2015&mdash;2016 versions everywhere: frontend, backend, tests, tasks.
+              Have you ever though of volunteering as a dogwalker? 
+              It's a fantastic way to get some fresh air, for both human and pooch and check out all the benefits:
             </p>
 
-            <h3>General</h3>
+            <h3>Increases Chance Of Adoption</h3>
             <p>
-              App uses AJAX loaders heavily to avoid "white screen" UX issue.
+              Each and every walk for these lovely doggies really does increase their chances of adoption. 
+              Why? Theres a few reasons. One is that by taking photos and videos of your dog on each walk, 
+              and then posting on social media, you are really increasing their exposure and getting their 
+              story out there. In turn we get more adoption enquiries. Dogwalking on its own has very often 
+              resulted in adoption!
             </p>
 
-            <h3>Index</h3>
+            <h3>Improves Dogs Health & Happiness</h3>
             <p>
-              Any widget in any frontend application may be either bound or unbound to URL.
-              React Ultimate is no exception. We decided to highlight this lesser-known topic by
-              the very app structure.
-            </p>
-            <p>
-              Index for <a href="/robots">Robots</a> is URL-bound. State is mirrored
-              in URL so it's possible to bookmark and share link to exact page state (offset, filters, sorts...).
-              Namespacing of URL params is not supported, e.g. there can't be two URL-bound paginations on the same page.
-            </p>
-            <p>
-              Index for <a href="/monsters">Monsters</a> is URL-unbound. State is implicit and hidden
-              from user so bookmarking is impossible. On the flip side, such components aren't limited
-              in numbers. Also notice how much more performant is ULR-unbound pagination comparing
-              to the URL-bound one.
+              Although the doggies are well taken care of, there is no substitute for a lovely beach walk 
+              and the fresh salty air. It does wonders for the dogs socialisation with other dogs and humans 
+              alike, and also really makes them happier. All of this means they are more likely to have a 
+              successful adoption.
             </p>
 
-            <h4>Pagination</h4>
+            <h3>A Fun Experience</h3>
             <p>
-              Ultimate Backend and Frontend solution.
-              Uses cache whenever possible to avoid unnecessary API request.
-              Autoredirects whenever requested page is begger than available.
+              The more important stuff aside, it's a whole load of fun! It gives you a chance not only to make 
+              a massive difference to these needy furbabies, but also lets you meet other likeminded people in 
+              a lovely setting, and gives you a little exercise too! Some great friendships have formed on our 
+              dogwalks.
             </p>
+            
 
-            <h4>Perpage</h4>
+           
+            <h1>Want To Join?</h1>
             <p>
-              Ultimate Backend and Frontend solution.
-              Performant: recalculates new pagination without API request.
-              User friendly: keeps current page whenever new page limit is applied.
-            </p>
-
-            <h4>Filters</h4>
-            <p>
-              Ultimate Backend and Frontend solution.
-              Performant: uses cache whenever possible to avoid unnecessary API request.
-              User friendly: resets to first page whenever new filters are applied (old offset
-              loses meaning with new filters).
-            </p>
-
-            <h4>Sorts</h4>
-            <p>
-              Ultimate Backend and Frontend solution.
-              Performant: uses cache whenever possible to avoid unnecessary API request.
-              User friendly: keeps current page whenever new sorts are applied (old offset
-              keeps meaning with new sorts).
-            </p>
-
-            <h3>CRUD</h3>
-            <h4>Validation</h4>
-            <p>
-              Text fields are validated after input is stopped to provide immediate feedback
-              about errors. Validations "on blur" and "on submit" are also available, of course.
-              Validation rules are common between frontend and backend.
-            </p>
-
-            <h4>Index Backlinks</h4>
-            <p>
-              Backlinks from item pages to index pages point to the corresponding offsets in paginations.
-              It was practically impossible to do this "right" in backend-driven apps. As soon
-              as multiple browser tabs were opened, and cookies were overwritten, you were into trouble...
-              Fortunately that days are gone.
-            </p>
-
-            <h3>Alerts</h3>
-            <p>
-              Powerful alert system. Beside all that animation goodness,
-              alerts are "sticky to the screen" so you can change the page without alert disappear.
-              This was impossible to implement in a backend-driven solution.
-            </p>
-
-            <h3>Text Holders</h3>
-            <p>
-              Typography goodness. The width of text container is auto-regulated to display about 80 character per row.
-              Check this <a href="http://www.pearsonified.com/2012/01/characters-per-line.php">comprehensive article</a> for more information.
+              If you'd like to join us on a dogwalk, thats great! The more the merrier and we would love for you 
+              to join us, the doggies will love to meet you too! 
+              <a href='/robots/'> Please sign up here</a>
             </p>
           </section>
         </TextHolder>

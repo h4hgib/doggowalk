@@ -1,4 +1,4 @@
-import React from "react"
+  import React from "react"
 import DocumentTitle from "react-document-title"
 import {Component, TextHolder} from "frontend/components/common"
 
@@ -8,15 +8,15 @@ export default class Tech extends Component {
       <DocumentTitle title="React Ultimate :: Tech">
         <TextHolder>
           <section className="container page home">
-            <h1>Tech Stack</h1>
+            <h1>Book the Activity</h1>
 
-            <h3>Tools</h3>
+            <h3>Date/time</h3>
             <ul>
               <li><a href="https://babeljs.io/">Babel</a>: transpiler</li>
               <li><a href="http://webpack.github.io/">Webpack</a>: module bundler</li>
             </ul>
 
-            <h3>Frontend</h3>
+            <h3>Doggo</h3>
             <ul>
               <li><a href="http://facebook.github.io/react/">React</a>: declarative UI</li>
               <li><a href="https://github.com/Yomguithereal/baobab">Baobab</a>: data tree with cursors</li>
@@ -24,7 +24,7 @@ export default class Tech extends Component {
               <li><a href="https://github.com/gaearon/react-document-title">React-Document-Title</a>: declarative document titles</li>
             </ul>
 
-            <h3>Backend</h3>
+            <h3>Activity type</h3>
             <ul>
               <li><a href="https://nodejs.org/en/">NodeJS</a>: event-driven environment</li>
               <li><a href="http://expressjs.com/">Express</a>: backend framework, REST API</li>

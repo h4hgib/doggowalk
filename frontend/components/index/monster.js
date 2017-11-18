@@ -41,7 +41,7 @@ export default class MonsterIndex extends DeepComponent {
         <div>
           <Actions {...this.props}/>
           <section className="container">
-            <h1>Monsters</h1>
+            <h1>Cattos</h1>
             {pagination}
             <div className="row">
               {map(item => <MonsterItem item={item} key={item.id}/>, items)}

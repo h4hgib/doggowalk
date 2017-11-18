@@ -52,7 +52,7 @@ export default class Body extends Component {
                 <span className="sr-only">Toggle navigation</span>
                 <span className="fa fa-bars fa-lg"></span>
               </button>
-              <Link className="navbar-brand" to="about"><span className="light">React</span>Ultimate</Link>
+              <Link className="navbar-brand" to="about"><span className="light">Doggo</span>Walk</Link>
             </div>
             <Menu menuCollapse={this.state.menuCollapse}/>
           </div>

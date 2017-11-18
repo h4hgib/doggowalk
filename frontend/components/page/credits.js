@@ -12,17 +12,17 @@ export default class Credits extends Component {
 
             <h3>Idea</h3>
             <ul>
-              <li><a href="https://twitter.com/ivankleshnin">Ivan Kleshnin</a>, inspired by <a href="https://github.com/HenrikJoreteg/humanjs-sample-app">AmpersandJS</a> <em>Humans</em> web-app sample</li>
+              <li>Ed, Edd n' Eddy, inspired by <a href="https://github.com/Paqmind/react-ultimate">react-ultimate</a> <em></em></li>
             </ul>
 
             <h3>Design &amp; Programming</h3>
             <ul>
-              <li><a href="https://paqmind.com/">Paqmind</a> web development hub</li>
+              <li>Ed, Edd n' Eddy</li>
             </ul>
 
             <h3>Assets</h3>
             <ul>
-              <li>Pictures of <em>Robots</em> by Zikri Kader and <em>Monsters</em> by Hrvoje Novakovic from <a href="http://robohash.org/">robohash.org</a></li>
+              <li>Pictures of <em>dogs</em> by Animals in need foundation from <a href="http://www.ainf.gi/index.php">ainf.gi</a></li>
               <li>Background pattern by Ste Patten from <a href="http://subtlepatterns.com/escheresque-dark/">subtlepatterns.com</a></li>
             </ul>
           </section>
