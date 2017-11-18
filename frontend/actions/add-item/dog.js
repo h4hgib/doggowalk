@@ -17,7 +17,7 @@ export default function addItem(data) {
 
   data = assoc("id", data.id || UUID.v4(), data)
   let item = parseAs(Dog, data)
-  let id = item.id
+  let id = item._id
 
   // Optimistic update
   dataCursor.apply("total", t => t + 1)
@@ -36,7 +36,7 @@ export default function addItem(data) {
 
   if (urlCursor.get("route") == api.singular + "-add") {
     setImmediate(() => {
-      router.transitionTo(api.singular + "-detail", {id: item.id})
+      router.transitionTo(api.singular + "-detail", {id: item._id})
     })
   }
 
@@ -51,7 +51,7 @@ export default function addItem(data) {
       } else {
         itemsCursor.unset(id)
         dataCursor.apply("total", t => t ? t - 1 : t)
-        dataCursor.apply("pagination", ps => reject(id => id == item.id, ps))
+        dataCursor.apply("pagination", ps => reject(id => id == item._id, ps))
         throw Error(response.statusText)
       }
     })

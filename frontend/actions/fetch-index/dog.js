@@ -20,7 +20,7 @@ export default function fetchIndex(filters, sorts, offset, limit) {
   return ajax.get(api.indexUrl, {params: query})
     .then(response => {
       if (response.status.startsWith("2")) {
-        let newItemsArray = map(data => parseAs(Dog, data), response.data.data)
+        let newItemsArray = response.data.data//map(data => parseAs(Dog, data), response.data.data)
         let newItems = toObject(newItemsArray)
         itemsCursor.merge(newItems)
         dataCursor.set("total", response.data.meta.page.total)

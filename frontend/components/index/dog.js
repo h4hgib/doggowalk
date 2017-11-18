@@ -43,7 +43,7 @@ export default class DogIndex extends DeepComponent {
             <h1>Doggos</h1>
             {pagination}
             <div className="row">
-              {map(item => <DogItem item={item} key={item.id}/>, items)}
+              {map(item => <DogItem item={item} key={item._id}/>, items)}
             </div>
             {pagination}
           </section>

@@ -86,7 +86,8 @@ function unflattenObject(object) {
 function toObject(array) {
   if (isArray(array)) {
     return reduce((memo, item) => {
-      return assoc(item.id, item, memo)
+			item.id = item._id
+      return assoc(item._id, item, memo)
     }, {}, array)
   } else {
     throw Error(`array must be plain Array, got ${array}`)
@@ -96,7 +97,7 @@ function toObject(array) {
 function toArray(object) {
   if (isPlainObject(object)) {
     return sortBy(
-      item => item.id,
+      item => item._id,
       map(key => object[key], keys(object))
     )
   } else {
