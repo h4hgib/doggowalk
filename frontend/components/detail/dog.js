@@ -54,18 +54,20 @@ export default class DogDetail extends DeepComponent {
 
   render() {
     let {havePendingRequests, item} = this.props
-  
+
 
     if (item) {
         var today = new Date();
         var birthDate = new Date(item.birth_date);
         var age = today.getFullYear() - birthDate.getFullYear();
         var m = today.getMonth() - birthDate.getMonth();
-        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) 
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate()))
         {
             age--;
         }
         console.log(age);
+
+				let gender = (item.gender.charAt(0).toUpperCase() + item.gender.slice(1));
 
       return (
         <DocumentTitle title={"Detail " + item.name}>
@@ -84,7 +86,7 @@ export default class DogDetail extends DeepComponent {
                     <dt>Name</dt>
                     <dd>{item.name}</dd>
                     <dt>Gender</dt>
-                    <dd>{item.gender}</dd>
+                    <dd>{gender}</dd>
                     <dt>Age</dt>
                     <dd>{age} years old</dd>
                     <dt>Strength</dt>

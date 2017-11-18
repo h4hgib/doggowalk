@@ -158,13 +158,73 @@ MongoClient.connect('mongodb://localhost:27017/animals', function (err, db) {
 	  description: "http://www.ainf.gi/doggy.php?id=98",
 	  birth_date: "2012-12-01",
 	  gender: "female",
+	  activity_level: "Non Active",
+	  social_level: "Semi Social",
+	  size: "Medium",
+	  strength: "Weak",
+	  last_time_walked: "2017-11-13"
+	},
+	{
+	  name: "Marley",
+	  image: "http://www.ainf.gi/images/dogs/100/cover.jpg",
+	  description: "http://www.ainf.gi/doggy.php?id=100",
+	  birth_date: "2014-07-01",
+	  gender: "male",
 	  activity_level: "Active",
 	  social_level: "Social",
 	  size: "Medium",
-	  strength: "Medium",
+	  strength: "Weak",
 	  last_time_walked: "2017-11-17"
+	},
+	{
+	  name: "Peaches",
+	  image: "http://www.ainf.gi/images/dogs/137/cover.jpg",
+	  description: "http://www.ainf.gi/doggy.php?id=137",
+	  birth_date: "2017-01-01",
+	  gender: "female",
+	  activity_level: "Active",
+	  social_level: "Social",
+	  size: "Small",
+	  strength: "Weak",
+	  last_time_walked: "2017-11-12"
+	},
+	{
+	  name: "Ralphy",
+	  image: "http://www.ainf.gi/images/dogs/132/cover.jpg",
+	  description: "http://www.ainf.gi/doggy.php?id=132",
+	  birth_date: "2015-01-01",
+	  gender: "male",
+	  activity_level: "Non Active",
+	  social_level: "Social",
+	  size: "Medium",
+	  strength: "Weak",
+	  last_time_walked: "2017-11-10"
+	},
+	{
+	  name: "Oakley",
+	  image: "http://www.ainf.gi/images/dogs/155/cover.jpg",
+	  description: "http://www.ainf.gi/doggy.php?id=155",
+	  birth_date: "2017-01-01",
+	  gender: "male",
+	  activity_level: "Semi Active",
+	  social_level: "Non Social",
+	  size: "Small",
+	  strength: "Weak",
+	  last_time_walked: "2017-11-15"
+	},
+	{
+	  name: "Lune",
+	  image: "http://www.ainf.gi/images/dogs/155/cover.jpg",
+	  description: "http://www.ainf.gi/doggy.php?id=155",
+	  birth_date: "2014-01-01",
+	  gender: "female",
+	  activity_level: "Semi Active",
+	  social_level: "Social",
+	  size: "Medium",
+	  strength: "Strong",
+	  last_time_walked: "2017-11-10"
 	}
-	]);
+]);
 
 	db.collection('doggos').find().toArray(function (err, result) {
 		if (err) throw err
