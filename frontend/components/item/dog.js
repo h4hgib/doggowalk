@@ -9,14 +9,21 @@ export default class DogItem extends ShallowComponent {
   }
 
   render() {
-    let item = this.props.item
+		let item = this.props.item
 
-  var sadorhappy;
-  if (1<0) {
-    sadorhappy =  <img src="../public/sad_doggo.png" height="33" width="38" title="Not walked"></img>;
-  } else {
-    sadorhappy =  <img src="../public/happy_doggo.png" height="33" width="38" title="Recently walked"></img>;
-  }
+		var today = new Date();
+		console.log(item.last_time_walked)
+		var last_time_walked = new Date(item.last_time_walked);
+		var shouldTheDogBeWalked = Date.now() - last_time_walked;
+		var shouldTheDogBeWalkedInDays = shouldTheDogBeWalked/1000/60/60/24
+		console.log(shouldTheDogBeWalkedInDays)
+
+	  var sadorhappy;
+	  if (shouldTheDogBeWalkedInDays > 5) {
+	    sadorhappy =  <img src="../public/sad_doggo.png" height="33" width="38" title="Not walked"></img>;
+	  } else {
+	    sadorhappy =  <img src="../public/happy_doggo.png" height="33" width="38" title="Recently walked"></img>;
+	  }
 
     if (item) {
       return (
