@@ -7,8 +7,8 @@ export default class Footer extends Component {
     return (
       <footer className="footer">
         <p className="text-center">
-          <a href="https://github.com/Paqmind/react-ultimate" target="_blank">
-            <span className="fa fa-github fa-lg margin-right-xs"></span> github.com/Paqmind/react-ultimate
+          <a href="https://github.com/h4hgib/doggowalk" target="_blank">
+            <span className="fa fa-github fa-lg margin-right-xs"></span> github.com/h4hgib/doggowalk
           </a>
         </p>
         <p className="text-center">

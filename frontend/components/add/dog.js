@@ -91,16 +91,16 @@ export default class DogAdd extends DeepComponent {
                     required: false,
                     error: Boolean(errors.manufacturer),
                   })}>
-                    <label htmlFor="manufacturer">Manufacturer</label>
+                    <label htmlFor="image">Image Link</label>
                     <input type="text"
-                      value={form.manufacturer}
-                      onBlur={() => this.handleBlur("manufacturer")}
-                      onChange={event => this.handleChange("manufacturer", event.currentTarget.value)}
-                      id="manufacturer" className="form-control"/>
+                      value={form.image}
+                      onBlur={() => this.handleBlur("image")}
+                      onChange={event => this.handleChange("image", event.currentTarget.value)}
+                      id="image" className="form-control"/>
                     <div className={Class("help", {
                       error: Boolean(errors.manufacturer),
                     })}>
-                      {map(message => <span key="">{message}</span>, [errors.manufacturer])}
+                      {map(message => <span key="">{message}</span>, [errors.image])}
                     </div>
                   </div>
 
@@ -108,18 +108,104 @@ export default class DogAdd extends DeepComponent {
                     required: false,
                     error: Boolean(errors.assemblyDate),
                   })}>
-                    <label htmlFor="assemblyDate">Assembly Date</label>
+                    <label htmlFor="description">Description Link</label>
                     <input type="text"
-                      value={form.assemblyDate}
-                      onBlur={() => this.handleBlur("assemblyDate")}
-                      onChange={event => this.handleChange("assemblyDate", event.currentTarget.value)}
-                      id="assemblyDate" className="form-control"/>
+                      value={form.description}
+                      onBlur={() => this.handleBlur("description")}
+                      onChange={event => this.handleChange("description", event.currentTarget.value)}
+                      id="description" className="form-control"/>
                     <div className={Class("help", {
-                      error: Boolean(errors.assemblyDate),
+                      error: Boolean(errors.description),
                     })}>
-                      {map(message => <span key="">{message}</span>, [errors.assemblyDate])}
+                      {map(message => <span key="">{message}</span>, [errors.description])}
                     </div>
                   </div>
+
+                  <div className={Class("form-group", {
+                      required: false,
+                      error: Boolean(errors.gender),
+                  })}>
+                    <label htmlFor="gender">Gender</label>
+                    <input type="text"
+                           value={form.gender}
+                           onBlur={() => this.handleBlur("gender")}
+                           onChange={event => this.handleChange("gender", event.currentTarget.value)}
+                           id="gender" className="form-control"/>
+                    <div className={Class("help", {
+                        error: Boolean(errors.gender),
+                    })}>
+                        {map(message => <span key="">{message}</span>, [errors.gender])}
+                    </div>
+                  </div>
+
+                  <div className={Class("form-group", {
+                      required: false,
+                      error: Boolean(errors.activity_level),
+                  })}>
+                    <label htmlFor="activity_level">Activity Level</label>
+                    <input type="text"
+                           value={form.activity_level}
+                           onBlur={() => this.handleBlur("activity_level")}
+                           onChange={event => this.handleChange("activity_level", event.currentTarget.value)}
+                           id="activity_level" className="form-control"/>
+                    <div className={Class("help", {
+                        error: Boolean(errors.activity_level),
+                    })}>
+                        {map(message => <span key="">{message}</span>, [errors.activity_level])}
+                    </div>
+                  </div>
+
+                  <div className={Class("form-group", {
+                      required: false,
+                      error: Boolean(errors.social_level),
+                  })}>
+                    <label htmlFor="social_level">Social Level</label>
+                    <input type="text"
+                           value={form.social_level}
+                           onBlur={() => this.handleBlur("social_level")}
+                           onChange={event => this.handleChange("social_level", event.currentTarget.value)}
+                           id="social_level" className="form-control"/>
+                    <div className={Class("help", {
+                        error: Boolean(errors.social_level),
+                    })}>
+                        {map(message => <span key="">{message}</span>, [errors.social_level])}
+                    </div>
+                  </div>
+
+                  <div className={Class("form-group", {
+                      required: false,
+                      error: Boolean(errors.size),
+                  })}>
+                    <label htmlFor="size">Size</label>
+                    <input type="text"
+                           value={form.size}
+                           onBlur={() => this.handleBlur("size")}
+                           onChange={event => this.handleChange("size", event.currentTarget.value)}
+                           id="size" className="form-control"/>
+                    <div className={Class("help", {
+                        error: Boolean(errors.size),
+                    })}>
+                        {map(message => <span key="">{message}</span>, [errors.size])}
+                    </div>
+                  </div>
+
+                  <div className={Class("form-group", {
+                      required: false,
+                      error: Boolean(errors.strenght),
+                  })}>
+                    <label htmlFor="strenght">Strenght</label>
+                    <input type="text"
+                           value={form.strenght}
+                           onBlur={() => this.handleBlur("strenght")}
+                           onChange={event => this.handleChange("strenght", event.currentTarget.value)}
+                           id="strenght" className="form-control"/>
+                    <div className={Class("help", {
+                        error: Boolean(errors.strenght),
+                    })}>
+                        {map(message => <span key="">{message}</span>, [errors.strenght])}
+                    </div>
+                  </div>
+
                 </fieldset>
                 <div className="btn-group">
                   <button className="btn btn-default" type="button" onClick={() => this.handleReset()}>Reset</button>

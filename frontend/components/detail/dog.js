@@ -35,18 +35,28 @@ export default class DogDetail extends DeepComponent {
               <div className="row">
                 <div className="col-xs-12 col-sm-3">
                   <div className="thumbnail">
-                    <img src={"http://robohash.org/" + item.id + "?size=200x200"} width="200px" height="200px"/>
+                    <img src={item.image} width="200px" height="200px"/>
                   </div>
                 </div>
                 <div className="col-xs-12 col-sm-9">
                   <h1 className="nomargin-top">{item.name}</h1>
                   <dl>
-                    <dt>Serial Number</dt>
-                    <dd>{item.id}</dd>
-                    <dt>Manufacturer</dt>
-                    <dd>{item.manufacturer}</dd>
-                    <dt>Assembly Date</dt>
-                    <dd>{item.assemblyDate.toString()}</dd>
+                    <dt>Name</dt>
+                    <dd>{item.name}</dd>
+                    <dt>Gender</dt>
+                    <dd>{item.gender}</dd>
+                    <dt>Age</dt>
+                    <dd>{item.birth_date}</dd>
+                    <dt>Strength</dt>
+                    <dd>{item.strength}</dd>
+                    <dt>Size</dt>
+                    <dd>{item.size}</dd>
+                    <dt>Social Level</dt>
+                    <dd>{item.social_level}</dd>
+                    <dt>Activity Level</dt>
+                    <dd>{item.activity_level}</dd>
+                    <dt>More info</dt>
+                    <dd>{item.description}</dd>
                   </dl>
                 </div>
               </div>
