@@ -86,7 +86,10 @@ module.exports = {
       {test: /\.(json5(\?.*)?)$/, loaders: ["json5"]},
 
       // https://github.com/webpack/css-loader
-      {test: /\.(css(\?.*)?)$/, loader: ExtractTextPlugin.extract(`css!${AUTOPREFIXER}`)},
+        {
+            test: /\.(css|scss)$/,
+            loaders: ['style-loader','css-loader?sourceMap', 'postcss-loader?sourceMap', 'sass-loader?outputStyle=expanded&sourceMap=true&sourceMapContents=true&sourceComments']
+        },
 
       // https://github.com/webpack/less-loader
       {test: /\.(less(\?.*)?)$/, loader: ExtractTextPlugin.extract(`css!${AUTOPREFIXER}!less`)},
