@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+ln -sfn ../common   node_modules/common
+ln -sfn ../frontend node_modules/frontend
+ln -sfn ../backend  node_modules/backend
+ln -sfn ../public   node_modules/public
