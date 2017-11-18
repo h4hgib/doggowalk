@@ -27,7 +27,7 @@ export default class DogItem extends ShallowComponent {
             </div>
             <div className="panel-body text-center nopadding">
               <Link to="dog-detail" params={{id: item._id}}>
-                <img src={'http://robohash.org/' + item._id + '?size=200x200'} width="200px" height="200px"/>
+              <img className="front-image" src={item.image} height="200px"/>
               </Link>
             </div>
             <div className="panel-footer">
