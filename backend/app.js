@@ -53,16 +53,14 @@ if (process.env.NODE_ENV != "testing") {
 
 let appRouter = require("backend/pages/app")
 let alertRouters = require("backend/actions/alert")
-let robotRouters = require("backend/actions/robot")
-let monsterRouters = require("backend/actions/monster")
+let dogRouters = require("backend/actions/dog")
 
 let publicRouter = Express.static("public", {etag: false})
 
 app.use("/", appRouter)
 app.use("/public", publicRouter)
 forEach(router => app.use("/api/alerts/", router), alertRouters)
-forEach(router => app.use("/api/robots/", router), robotRouters)
-forEach(router => app.use("/api/monsters/", router), monsterRouters)
+forEach(router => app.use("/api/dogs/", router), dogRouters)
 
 app.use((req, res, cb) => {
   res.status(404).sendFile(Path.join(PUBLIC_DIR, "errors/404.html"))

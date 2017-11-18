@@ -27,15 +27,7 @@ exports.ALERT = {
   expire: 5000,
 }
 
-exports.ROBOT = {
-  index: {
-    defaultFilters: undefined,
-    defaultSorts: ["+name"],
-    defaultLimit: 12,
-  }
-}
-
-exports.MONSTER = {
+exports.DOG = {
   index: {
     defaultFilters: undefined,
     defaultSorts: ["+name"],

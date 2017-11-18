@@ -22,7 +22,6 @@ export default class Credits extends Component {
 
             <h3>Assets</h3>
             <ul>
-              <li>Pictures of <em>Robots</em> by Zikri Kader and <em>Monsters</em> by Hrvoje Novakovic from <a href="http://robohash.org/">robohash.org</a></li>
               <li>Background pattern by Ste Patten from <a href="http://subtlepatterns.com/escheresque-dark/">subtlepatterns.com</a></li>
             </ul>
           </section>

@@ -13,6 +13,6 @@ Here are the changes made from previous version:
 5. Downgraded react-router and changed reactDOM code because react has changed syntax
 6. There are various console errors related to propTypes - this is because react-router is old and don't inhibit functionality
 7. There are various ReactCSSTransitionGroup console errors - this is because the main <app> component doesnt include transitions and doesn't inhibit functionality
-8. frontend-components-detail-robot.js fixed a react component issue where item.assemblyDate was an object and replaced it with a string
+8. frontend-components-detail-dog.js fixed a react component issue where item.assemblyDate was an object and replaced it with a string
 9. common-validation.js fixed a "validateData not a function" issue by changing the exports line, old code is commented out.
 10. Mocha tests - 15 failing, unsure how to fix them

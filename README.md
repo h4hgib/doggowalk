@@ -46,7 +46,7 @@ React is not a final answer. Reactivity probably is.
 ## Test
 
 1. Run all tests with `$ . .conf-test ; npm mocha -s`
-2. Run specific tests with `$ . .conf-test ; npm test -- --grep "api/robots POST" -s` (`--` is an NPM syntax to pass arguments)
+2. Run specific tests with `$ . .conf-test ; npm test -- --grep "api/dogs POST" -s` (`--` is an NPM syntax to pass arguments)
 
 ## Notes
 

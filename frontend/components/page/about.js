@@ -28,15 +28,9 @@ export default class About extends Component {
               the very app structure.
             </p>
             <p>
-              Index for <a href="/robots">Robots</a> is URL-bound. State is mirrored
+              Index for <a href="/dogs">Dogs</a> is URL-bound. State is mirrored
               in URL so it's possible to bookmark and share link to exact page state (offset, filters, sorts...).
               Namespacing of URL params is not supported, e.g. there can't be two URL-bound paginations on the same page.
-            </p>
-            <p>
-              Index for <a href="/monsters">Monsters</a> is URL-unbound. State is implicit and hidden
-              from user so bookmarking is impossible. On the flip side, such components aren't limited
-              in numbers. Also notice how much more performant is ULR-unbound pagination comparing
-              to the URL-bound one.
             </p>
 
             <h4>Pagination</h4>

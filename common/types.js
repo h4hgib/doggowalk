@@ -14,32 +14,19 @@ let Alert = Tc.struct({
   expire: Tc.Number,
 }, "Alert")
 
-let RobotName = Tc.subtype(Tc.String, x => {
+let DogName = Tc.subtype(Tc.String, x => {
   return x.length >= 2 && x.length <= 100
-}, "RobotName")
+}, "DogName")
 
-let RobotManufacturer = Tc.enums.of(["China", "Russia", "USA"], "RobotManufacturer")
+let DogManufacturer = Tc.enums.of(["China", "Russia", "USA"], "DogManufacturer")
 
-let Robot = Tc.struct({
+let Dog = Tc.struct({
   id: Uid,
-  name: RobotName,
-  manufacturer: RobotManufacturer,
+  name: DogName,
+  manufacturer: DogManufacturer,
   assemblyDate: Tc.Date,
-}, "Robot")
-
-let MonsterName = Tc.subtype(Tc.String, x => {
-  return x.length >= 2 && x.length <= 100
-}, "MonsterName")
-
-let MonsterCitizenship = Tc.enums.of(["China", "Russia", "USA"], "MonsterCitizenship")
-
-let Monster = Tc.struct({
-  id: Uid,
-  name: MonsterName,
-  citizenship: MonsterCitizenship,
-  birthDate: Tc.Date,
-}, "Monster")
+}, "Dog")
 
 module.exports = {
-  Uid, Alert, Robot, Monster,
+  Uid, Alert, Dog
 }
