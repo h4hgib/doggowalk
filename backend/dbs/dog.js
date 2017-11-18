@@ -5,11 +5,8 @@ let MongoClient = require('mongodb').MongoClient
 MongoClient.connect('mongodb://localhost:27017/animals', function (err, db) {
   if (err) throw err
 
-	// db.collection('doggos').insertMany([
-	//    { item: "testDog", age: 5, gender: "female",
-	//        size: { h: 14, w: 21, uom: "cm" }, tags: [ "nice", "goodboy" ] }
-	// ]);
-
+//
+//
 // 	db.collection('doggos').insertMany([
 // {
 //   name: "Maisey",
@@ -44,14 +41,11 @@ MongoClient.connect('mongodb://localhost:27017/animals', function (err, db) {
 //   strength: "Strong"
 // }
 // ]);
-
-	//db.collection('doggos').deleteMany()
-
-
-	// db.collection('doggos').find().toArray(function (err, result) {
-	// 	if (err) throw err
-	// 	console.log(result)
-	// })
+//
+// 	db.collection('doggos').find().toArray(function (err, result) {
+// 		if (err) throw err
+// 		console.log(result)
+// 	})
 
 })
 

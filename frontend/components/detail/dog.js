@@ -22,6 +22,36 @@ let dataCursor = state.select(api.plural)
   }
 })
 export default class DogDetail extends DeepComponent {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      actualRoute: 1,
+        date: "11 November 2017"
+    };
+
+    this.changeRoute = this.changeRoute.bind(this);
+  }
+
+  changeRoute(value) {
+
+    let newVal = 0;
+
+    if (value + this.state.actualRoute > this.state.actualRoute) {
+        newVal = this.state.actualRoute < 4 ? this.state.actualRoute + value : 1;
+    } else {
+        newVal = this.state.actualRoute === 1 ? this.state.actualRoute + value : 5;
+    }
+
+    const date = "1" + newVal + " November 2017";
+
+    this.setState({
+        actualRoute: newVal,
+        date: date
+    })
+  }
+
   render() {
     let {havePendingRequests, item} = this.props
 
@@ -33,12 +63,12 @@ export default class DogDetail extends DeepComponent {
             <Actions {...this.props}/>
             <section className="container margin-top-lg">
               <div className="row">
-                <div className="col-xs-12 col-sm-3">
+                <div className="col-xs-3">
                   <div className="thumbnail">
                     <img src={item.image} width="200px" height="200px"/>
                   </div>
                 </div>
-                <div className="col-xs-12 col-sm-9">
+                <div className="col-xs-6">
                   <h1 className="nomargin-top">{item.name}</h1>
                   <dl>
                     <dt>Name</dt>
@@ -59,6 +89,13 @@ export default class DogDetail extends DeepComponent {
                     <dd>{item.description}</dd>
                   </dl>
                 </div>
+                  <div className="col-xs-3">
+                      <h3>Previous walks</h3>
+                      <img src={`../public/route${this.state.actualRoute}.png`} width="200px" height="200px"/>
+                      <p>{this.state.date}</p>
+                      <button className="btn btn-default" type="button" onClick={() => this.changeRoute(-1)}>Prev</button>
+                      <button className="btn btn-default" type="button" onClick={() => this.changeRoute(1)}>Next</button>
+                  </div>
               </div>
             </section>
           </div>
