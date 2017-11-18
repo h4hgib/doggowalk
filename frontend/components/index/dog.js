@@ -66,19 +66,20 @@ class Actions extends ShallowComponent {
     let {filters, sorts, limit} = this.props
 
     let perPage = <PerPage
-      options={[5, 10, 12]} current={limit}
+      options={[5, 10, 20]} current={limit}
       makeHref={_limit => this.showLimit(_limit)}
       onClick={_limit => this.setLimit(_limit)}
     />
     let sortBy = <SortBy
-      options={["+name", "-name"]} current={sorts && sorts[0]}
+      options={["+name", "-name"]} current='name'
       makeHref={_sorts => this.showSorts(_sorts)}
       onClick={_sorts => this.setSorts(_sorts)}
     />
-    let filterBy = <FilterBy field="manufacturer"
-      options={[undefined, "China", "Russia", "USA"]} current={filters && filters.manufacturer}
-      makeHref={_filters => this.showFilters(_filters)}
-      onClick={_filters => this.setFilters(_filters)}
+
+		let sortByWalked = <SortBy
+      options={["+last_time_walked"]} current='most in need of a walk'
+      makeHref={_sorts => this.showSorts(_sorts)}
+      onClick={_sorts => this.setSorts(_sorts)}
     />
 
     return (
@@ -91,7 +92,7 @@ class Actions extends ShallowComponent {
             {sortBy}
           </div>
           <div className="pull-left">
-            {filterBy}
+            {sortByWalked}
           </div>
           <div className="pull-right">
             <Link to="dog-add" className="btn btn-sm btn-green" title="Add">
