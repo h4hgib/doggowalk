@@ -54,18 +54,20 @@ export default class DogDetail extends DeepComponent {
 
   render() {
     let {havePendingRequests, item} = this.props
-  
+
 
     if (item) {
         var today = new Date();
         var birthDate = new Date(item.birth_date);
         var age = today.getFullYear() - birthDate.getFullYear();
         var m = today.getMonth() - birthDate.getMonth();
-        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) 
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate()))
         {
             age--;
         }
         console.log(age);
+
+				let gender = (item.gender.charAt(0).toUpperCase() + item.gender.slice(1));
 
       return (
         <DocumentTitle title={"Detail " + item.name}>
@@ -82,19 +84,19 @@ export default class DogDetail extends DeepComponent {
                   <h1 className="nomargin-top">{item.name}</h1>
                   <dl>
                     <dt>Name</dt>
-                    <dd>{item.name}</dd>
+                    <dd className='secondTitle'>{item.name}</dd>
                     <dt>Gender</dt>
-                    <dd>{item.gender}</dd>
+                    <dd className='secondTitle'>{gender}</dd>
                     <dt>Age</dt>
-                    <dd>{age} years old</dd>
+                    <dd className='secondTitle'>{age} years old</dd>
                     <dt>Strength</dt>
-                    <dd>{item.strength}</dd>
+                    <dd className='secondTitle'>{item.strength}</dd>
                     <dt>Size</dt>
-                    <dd>{item.size}</dd>
+                    <dd className='secondTitle'>{item.size}</dd>
                     <dt>Social Level</dt>
-                    <dd>{item.social_level}</dd>
+                    <dd className='secondTitle'>{item.social_level}</dd>
                     <dt>Activity Level</dt>
-                    <dd>{item.activity_level}</dd>
+                    <dd className='secondTitle'>{item.activity_level}</dd>
                     <dt>More info</dt>
                     <dd><li><a href={item.description}>{item.description}</a></li></dd>
                   </dl>
