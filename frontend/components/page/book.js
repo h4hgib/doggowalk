@@ -3,6 +3,27 @@ import DocumentTitle from "react-document-title"
 import {Component, TextHolder} from "frontend/components/common"
 import InfiniteCalendar from 'react-infinite-calendar';
 import TimeInput from 'react-time-input';
+import SelectionDogItem from "frontend/components/item/selectableDog"
+
+import {map} from "ramda"
+import {statics} from "frontend/helpers/react"
+import {branch} from "baobab-react/decorators"
+import api from "common/api/dog"
+import * as actions from "frontend/actions/dog"
+
+@statics({
+    loadData: actions.establishIndex,
+})
+@branch({
+    cursors: {
+        filters: [api.plural, "filters"],
+        sorts: [api.plural, "sorts"],
+        offset: [api.plural, "offset"],
+        limit: [api.plural, "limit"],
+        total: [api.plural, "total"],
+        items: [api.plural, "currentItems"],
+    }
+})
 
 export default class Book extends Component {
 
@@ -24,10 +45,14 @@ export default class Book extends Component {
         this.people = "";
         this.date = "";
         this.time = "";
+        this.expert = false;
+        this.selectedDogs = [];
 
         this.handleChange = this.handleChange.bind(this);
         this.handleNext = this.handleNext.bind(this);
         this.handlePrev = this.handlePrev.bind(this);
+        this.handleClick = this.handleClick.bind(this);
+        this.handleClickedDog = this.handleClickedDog.bind(this);
     }
 
     handleChange(key, evt) {
@@ -39,12 +64,17 @@ export default class Book extends Component {
         this[key] = value;
     }
 
+    handleClick() {
+        this.expert = !this.expert;
+    }
+
     handleNext() {
 
         if (this.state.stageShown === 1 && this.name !== "" && this.people >= 1) {
             this.setState({
                 people: this.people,
                 name: this.name,
+                expert: this.expert,
                 stageShown:2
             });
         }
@@ -53,6 +83,11 @@ export default class Book extends Component {
                 date: this.date,
                 time: this.time,
                 stageShown:3
+            });
+        } else if (this.state.stageShown === 3 && this.selectedDogs.length > 0) {
+            this.setState({
+                selectedDogs: this.selectedDogs,
+                stageShown:4
             });
         }
     }
@@ -71,10 +106,16 @@ export default class Book extends Component {
         }
     }
 
+    handleClickedDog(dogId) {
+        this.selectedDogs.push(dogId);
+        console.log(dogId);
+    }
+
     render() {
 
         const today = new Date();
         const lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
+        let {filters, sorts, offset, limit, total, items} = this.props
 
         let elements = null;
         switch (this.state.stageShown) {
@@ -90,6 +131,8 @@ export default class Book extends Component {
                         <input type="number"
                                onChange={event => this.handleChange("people", event)}
                                id="people" className="form-control"/>
+                        <p>Are you an expert?</p>
+                        <input type="checkbox" id="expertbox" onClick={this.handleClick}/>
                     </div>
                 );
                 break;
@@ -117,7 +160,24 @@ export default class Book extends Component {
                 break;
 
             case 3:
-                break
+                elements = (
+                    <div className="row selectDog">
+                        {map(item => <SelectionDogItem item={item} key={item._id} onSelect={this.handleClickedDog}/>, items)}
+                    </div>
+                );
+                break;
+
+
+            case 4:
+                elements = (
+                    <div className="row">
+                        <h3>Your walk has been registered</h3>
+                        <h4>{`${this.state.date.toString()}`}</h4>
+                        <h4>{this.state.time}</h4>
+                    </div>
+                );
+                break;
+
         }
 
         return (
@@ -126,11 +186,14 @@ export default class Book extends Component {
               <section className="container page home">
                 <h1>Book the Activity</h1>
                   {elements}
-                  {this.state.stageShown > 1 &&
+                  {(this.state.stageShown > 1 && this.state.stageShown < 4)&&
                      <button className="btn btn-default" type="button" onClick={this.handlePrev}>Previous</button>
                   }
                   {this.state.stageShown < 3 &&
                      <button className="btn btn-default" type="button" onClick={this.handleNext}>Next</button>
+                  }
+                  {this.state.stageShown === 3 &&
+                     <button className="btn btn-default" type="button" onClick={this.handleNext}>Confirm</button>
                   }
               </section>
             </TextHolder>
