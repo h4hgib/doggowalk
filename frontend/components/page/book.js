@@ -194,7 +194,7 @@ export default class Book extends Component {
                         <h3>Pick a time</h3>
                         <TimeInput
                             initTime='00:00'
-                            className='form-control'
+                            className='form-control text-input-data__medium'
                             mountFocus='true'
                             onTimeChange={event => this.handleChange("time", event)}
                         />
@@ -224,18 +224,24 @@ export default class Book extends Component {
 
                 const dogs = Object.keys(this.state.selectedDogs);
                 let dogNames = "";
+                const dogImages = [];
                 for(let i = 0; i < dogs.length; i++) {
                     dogNames = dogNames + this.state.selectedDogs[dogs[i]].name;
+                    dogImages.push(<img src={`${this.state.selectedDogs[dogs[i]].image}`} className="getsAlongImg"/>);
                     if (i + 1 < dogs.length) {
                         dogNames = dogNames + ", ";
                     }
                 }
+
+                debugger;
+
                 elements = (
                     <div className="book-success">
                         <h3>{this.state.name} your walk has been registered!!</h3>
                         <br/>
                         <h4>{`${dogNames} are waiting for you`}</h4>
                         <p>{`${this.state.date.toString().split("00:")[0]} at ${this.state.time}`}</p>
+                        {dogImages}
                     </div>
                 );
                 break;
