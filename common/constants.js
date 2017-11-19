@@ -31,6 +31,6 @@ exports.DOG = {
   index: {
     defaultFilters: undefined,
     defaultSorts: ["+name"],
-    defaultLimit: 12,
+    defaultLimit: 10,
   }
 }
