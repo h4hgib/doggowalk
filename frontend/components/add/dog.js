@@ -126,16 +126,13 @@ export default class DogAdd extends DeepComponent {
                       error: Boolean(errors.gender),
                   })}>
                     <label htmlFor="gender">Gender</label>
-                    <input type="text"
-                           value={form.gender}
-                           onBlur={() => this.handleBlur("gender")}
-                           onChange={event => this.handleChange("gender", event.currentTarget.value)}
-                           id="gender" className="form-control"/>
-                    <div className={Class("help", {
-                        error: Boolean(errors.gender),
-                    })}>
-                        {map(message => <span key="">{message}</span>, [errors.gender])}
+                    <div>
+                    <select>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                    </select>
                     </div>
+                  
                   </div>
 
                   <div className={Class("form-group", {
@@ -143,15 +140,12 @@ export default class DogAdd extends DeepComponent {
                       error: Boolean(errors.activity_level),
                   })}>
                     <label htmlFor="activity_level">Activity Level</label>
-                    <input type="text"
-                           value={form.activity_level}
-                           onBlur={() => this.handleBlur("activity_level")}
-                           onChange={event => this.handleChange("activity_level", event.currentTarget.value)}
-                           id="activity_level" className="form-control"/>
-                    <div className={Class("help", {
-                        error: Boolean(errors.activity_level),
-                    })}>
-                        {map(message => <span key="">{message}</span>, [errors.activity_level])}
+                    <div>
+                    <select>
+                      <option value="Active">Active</option>
+                      <option value="Semi Active">Semi Active</option>
+                      <option value="Non Active">Non Active</option>
+                    </select>
                     </div>
                   </div>
 
@@ -160,15 +154,12 @@ export default class DogAdd extends DeepComponent {
                       error: Boolean(errors.social_level),
                   })}>
                     <label htmlFor="social_level">Social Level</label>
-                    <input type="text"
-                           value={form.social_level}
-                           onBlur={() => this.handleBlur("social_level")}
-                           onChange={event => this.handleChange("social_level", event.currentTarget.value)}
-                           id="social_level" className="form-control"/>
-                    <div className={Class("help", {
-                        error: Boolean(errors.social_level),
-                    })}>
-                        {map(message => <span key="">{message}</span>, [errors.social_level])}
+                    <div>
+                    <select>
+                      <option value="Social">Social</option>
+                      <option value="Semi Social">Semi Social</option>
+                      <option value="Non Social">Non Social</option>
+                    </select>
                     </div>
                   </div>
 
@@ -177,15 +168,12 @@ export default class DogAdd extends DeepComponent {
                       error: Boolean(errors.size),
                   })}>
                     <label htmlFor="size">Size</label>
-                    <input type="text"
-                           value={form.size}
-                           onBlur={() => this.handleBlur("size")}
-                           onChange={event => this.handleChange("size", event.currentTarget.value)}
-                           id="size" className="form-control"/>
-                    <div className={Class("help", {
-                        error: Boolean(errors.size),
-                    })}>
-                        {map(message => <span key="">{message}</span>, [errors.size])}
+                    <div>
+                    <select>
+                      <option value="Small">Small</option>
+                      <option value="Medium">Medium</option>
+                      <option value="Big">Big</option>
+                    </select>
                     </div>
                   </div>
 
@@ -194,15 +182,12 @@ export default class DogAdd extends DeepComponent {
                       error: Boolean(errors.strenght),
                   })}>
                     <label htmlFor="strenght">Strenght</label>
-                    <input type="text"
-                           value={form.strenght}
-                           onBlur={() => this.handleBlur("strenght")}
-                           onChange={event => this.handleChange("strenght", event.currentTarget.value)}
-                           id="strenght" className="form-control"/>
-                    <div className={Class("help", {
-                        error: Boolean(errors.strenght),
-                    })}>
-                        {map(message => <span key="">{message}</span>, [errors.strenght])}
+                    <div>
+                    <select>
+                      <option value="Weak">Weak</option>
+                      <option value="Medium">Medium</option>
+                      <option value="Strong">Strong</option>
+                    </select>
                     </div>
                   </div>
 
