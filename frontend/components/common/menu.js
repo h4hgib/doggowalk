@@ -9,7 +9,6 @@ export default class Menu extends Component {
         <ul className="nav navbar-nav">
           <li><Link to="about">About</Link></li>
           <li><Link to="dog-index">Doggos</Link></li>
-          <li><Link to="dog-index">Cattos</Link></li>
           <li><Link to="book">Book the Activity</Link></li>
           <li><Link to="credits">Credits</Link></li>
         </ul>
