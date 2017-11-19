@@ -65,9 +65,46 @@ export default class DogDetail extends DeepComponent {
         {
             age--;
         }
-        console.log(age);
 
 				let gender = (item.gender.charAt(0).toUpperCase() + item.gender.slice(1));
+				let getsAlongImgs = [{
+					src: 'http://www.ainf.gi/images/dogs/53/cover.jpg',
+					link: 'http://www.ainf.gi/doggy.php?id=53'
+				},{
+					src: 'http://www.ainf.gi/images/dogs/58/cover.jpg',
+					link: 'http://www.ainf.gi/doggy.php?id=58'
+				},{
+					src: 'http://www.ainf.gi/images/dogs/85/cover.jpg',
+					link: 'http://www.ainf.gi/doggy.php?id=85'
+				},{
+					src: 'http://www.ainf.gi/images/dogs/137/cover.jpg',
+					link: 'http://www.ainf.gi/doggy.php?id=137'
+				},{
+					src: 'http://www.ainf.gi/images/dogs/155/cover.jpg',
+					link: 'http://www.ainf.gi/doggy.php?id=155'
+				},{
+					src: 'http://www.ainf.gi/images/dogs/100/cover.jpg',
+					link: 'http://www.ainf.gi/doggy.php?id=100'
+				},{
+					src: 'http://www.ainf.gi/images/dogs/87/cover.jpg',
+					link: 'http://www.ainf.gi/doggy.php?id=87'
+				},{
+					src: 'http://www.ainf.gi/images/dogs/74/cover.jpg',
+					link: 'http://www.ainf.gi/doggy.php?id=74'
+				},{
+					src: 'http://www.ainf.gi/images/dogs/65/cover.jpg',
+					link: 'http://www.ainf.gi/doggy.php?id=65'
+				}]
+
+				for (var i = 0; i < getsAlongImgs.length; i++) {
+					if (getsAlongImgs[i].src == item.image) {
+						getsAlongImgs.splice(i, 1);
+						break;
+					}
+				}
+
+				getsAlongImgs.sort( function() { return 0.5 - Math.random() } );
+				getsAlongImgs = getsAlongImgs.slice(0, 4)
 
       return (
         <DocumentTitle title={"Detail " + item.name}>
@@ -99,6 +136,12 @@ export default class DogDetail extends DeepComponent {
                     <dd className='secondTitle'>{item.activity_level}</dd>
                     <dt>More info</dt>
                     <dd><li><a href={item.description}>{item.description}</a></li></dd>
+                    <dt>Gets Along With:</dt>
+                    <dd>
+                    {getsAlongImgs.map(obj =>
+                      <a href={obj.link}><img className='getsAlongImg' src={obj.src}/></a>
+                    )}
+                    </dd>
                   </dl>
                 </div>
                   <div className="col-xs-3">
