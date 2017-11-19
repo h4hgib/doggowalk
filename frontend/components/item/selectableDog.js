@@ -48,7 +48,7 @@ export default class SelectionDogItem extends ShallowComponent {
               <h4 className="panel-title">{item.name}</h4>
             </div>
             <div className="panel-body text-center nopadding">
-              <img className="front-image" src={item.image} height="200px" width="200px"/>
+            	<img className="front-image" src={item.image} height="200px"/>
             </div>
             <div className={`panel-footer ${this.state.isSelected ? "panel-footer__selected" : ""}`}>
               <div className="clearfix">
