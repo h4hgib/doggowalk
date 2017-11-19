@@ -37,7 +37,7 @@ export default class Book extends Component {
             email: "",
             phone: "",
             selectedDogs: {},
-            experts: false,
+            expert: false,
             date: "",
             time: "",
             stageShown: 1,
@@ -174,7 +174,7 @@ export default class Book extends Component {
                 );
                 break;
             case 2:
-                const disabledDays = this.state.experts ? [0,6] : [0,1,2,3,4];
+                const disabledDays = this.state.expert ? [] : [0,1,2,3,4];
 
                 setTimeout(() => {
                     window.scrollTo(0, 0)
@@ -232,8 +232,6 @@ export default class Book extends Component {
                         dogNames = dogNames + ", ";
                     }
                 }
-
-                debugger;
 
                 elements = (
                     <div className="book-success">
