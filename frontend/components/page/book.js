@@ -34,19 +34,24 @@ export default class Book extends Component {
         this.state = {
             name: "",
             people: 1,
-            selectedDogs: [],
+            email: "",
+            phone: "",
+            selectedDogs: {},
             experts: false,
             date: "",
             time: "",
-            stageShown: 1
+            stageShown: 1,
+            showNotification: false
         };
 
         this.name = "";
         this.people = "";
+        this.phone = "";
+        this.email = "";
         this.date = "";
         this.time = "";
         this.expert = false;
-        this.selectedDogs = [];
+        this.selectedDogs = {};
 
         this.handleChange = this.handleChange.bind(this);
         this.handleNext = this.handleNext.bind(this);
@@ -70,11 +75,14 @@ export default class Book extends Component {
 
     handleNext() {
 
-        if (this.state.stageShown === 1 && this.name !== "" && this.people >= 1) {
+        if (this.state.stageShown === 1 && this.name !== "" && this.phone !== "" && this.email !== "" && this.people >= 1) {
             this.setState({
                 people: this.people,
                 name: this.name,
+                email: this.email,
+                phone: this.phone,
                 expert: this.expert,
+                showNotification: false,
                 stageShown:2
             });
         }
@@ -82,13 +90,21 @@ export default class Book extends Component {
             this.setState({
                 date: this.date,
                 time: this.time,
+                showNotification: false,
                 stageShown:3
             });
-        } else if (this.state.stageShown === 3 && this.selectedDogs.length > 0) {
-            this.setState({
-                selectedDogs: this.selectedDogs,
-                stageShown:4
-            });
+        } else if (this.state.stageShown === 3) {
+            if (Object.keys(this.selectedDogs).length > 0 && Object.keys(this.selectedDogs).length <= this.state.people) {
+                this.setState({
+                    selectedDogs: this.selectedDogs,
+                    showNotification: false,
+                    stageShown: 4
+                });
+            } else {
+                this.setState({
+                    showNotification: true
+                });
+            }
         }
     }
 
@@ -106,9 +122,12 @@ export default class Book extends Component {
         }
     }
 
-    handleClickedDog(dogId) {
-        this.selectedDogs.push(dogId);
-        console.log(dogId);
+    handleClickedDog(item) {
+        if(this.selectedDogs.hasOwnProperty(item.id)) {
+            delete this.selectedDogs[item.id];
+        } else {
+            this.selectedDogs[item.id] = item;
+        }
     }
 
     render() {
@@ -120,23 +139,47 @@ export default class Book extends Component {
         let elements = null;
         switch (this.state.stageShown) {
             case 1:
+
+                setTimeout(() => {
+                    window.scrollTo(0, 0)
+                }, 100);
+
                 elements = (
                     <div>
                         <h2>Add your info</h2>
                         <p>Name:</p>
                         <input type="text"
                                onChange={event => this.handleChange("name", event)}
-                               id="name" className="form-control"/>
+                               id="name" className="form-control text-input-data"/>
+                        <br/>
+                        <p>Phone:</p>
+                        <input type="text"
+                               onChange={event => this.handleChange("phone", event)}
+                               id="phone" className="form-control text-input-data__medium"/>
+                        <br/>
+                        <p>Email:</p>
+                        <input type="text"
+                               onChange={event => this.handleChange("email", event)}
+                               id="email" className="form-control text-input-data"/>
+                        <br/>
                         <p>How many people?</p>
                         <input type="number"
                                onChange={event => this.handleChange("people", event)}
-                               id="people" className="form-control"/>
-                        <p>Are you an expert?</p>
-                        <input type="checkbox" id="expertbox" onClick={this.handleClick}/>
+                               id="people" className="form-control text-input-data__small"/>
+                        <br/>
+                        <span>
+                            <label>Are you an expert?</label><input type="checkbox" id="expertbox" onClick={this.handleClick}/>
+                        </span>
                     </div>
                 );
                 break;
             case 2:
+                const disabledDays = this.state.experts ? [0,6] : [0,1,2,3,4];
+
+                setTimeout(() => {
+                    window.scrollTo(0, 0)
+                }, 100);
+
                 elements = (
                     <div>
                         <h3>Pick a date</h3>
@@ -144,7 +187,7 @@ export default class Book extends Component {
                             width={400}
                             height={200}
                             selected={today}
-                            disabledDays={[0,6]}
+                            disabledDays={disabledDays}
                             minDate={lastWeek}
                             onSelect={event => this.handleChange("date", event)}
                         />
@@ -160,41 +203,68 @@ export default class Book extends Component {
                 break;
 
             case 3:
+
+                setTimeout(() => {
+                    window.scrollTo(0, 0)
+                }, 100);
+
                 elements = (
                     <div className="row selectDog">
-                        {map(item => <SelectionDogItem item={item} key={item._id} onSelect={this.handleClickedDog}/>, items)}
+                        {map(item => <SelectionDogItem item={item} key={item._id} onSelect={() => {this.handleClickedDog(item)}}/>, items)}
                     </div>
                 );
                 break;
 
 
             case 4:
+
+                setTimeout(() => {
+                    window.scrollTo(0, 0)
+                }, 100);
+
+                const dogs = Object.keys(this.state.selectedDogs);
+                let dogNames = "";
+                for(let i = 0; i < dogs.length; i++) {
+                    dogNames = dogNames + this.state.selectedDogs[dogs[i]].name;
+                    if (i + 1 < dogs.length) {
+                        dogNames = dogNames + ", ";
+                    }
+                }
                 elements = (
-                    <div className="row">
-                        <h3>Your walk has been registered</h3>
-                        <h4>{`${this.state.date.toString()}`}</h4>
-                        <h4>{this.state.time}</h4>
+                    <div className="book-success">
+                        <h3>{this.state.name} your walk has been registered!!</h3>
+                        <br/>
+                        <h4>{`${dogNames} are waiting for you`}</h4>
+                        <p>{`${this.state.date.toString().split("00:")[0]} at ${this.state.time}`}</p>
                     </div>
                 );
                 break;
-
         }
 
         return (
           <DocumentTitle title="React Ultimate :: Book">
             <TextHolder>
-              <section className="container page home">
-                <h1>Book the Activity</h1>
+              <section className={`container page home ${this.state.stageShown !== 3 ? "book-page" : ""}`}>
+                  {this.state.stageShown < 4 &&
+                    <h1>Book the Activity</h1>
+                  }
                   {elements}
-                  {(this.state.stageShown > 1 && this.state.stageShown < 4)&&
-                     <button className="btn btn-default" type="button" onClick={this.handlePrev}>Previous</button>
-                  }
-                  {this.state.stageShown < 3 &&
-                     <button className="btn btn-default" type="button" onClick={this.handleNext}>Next</button>
-                  }
-                  {this.state.stageShown === 3 &&
-                     <button className="btn btn-default" type="button" onClick={this.handleNext}>Confirm</button>
-                  }
+                  <br/>
+                  <div className="button-area">
+                      {(this.state.stageShown === 3 && this.state.showNotification) &&
+                        <p className="alert-msg">Sorry but you can't walk so many dogs. You have selected {Object.keys(this.selectedDogs).length} and you are allowed to walk {this.state.people}.</p>
+                      }
+                      {(this.state.stageShown > 1 && this.state.stageShown < 4)&&
+                        <button className="btn btn-default step-button" type="button" onClick={this.handlePrev}>Previous</button>
+                      }
+                      {this.state.stageShown < 3 &&
+                         <button className="btn btn-default step-button" type="button" onClick={this.handleNext}>Next</button>
+                      }
+                      {this.state.stageShown === 3 &&
+                        <button className="btn btn-default step-button" type="button" onClick={this.handleNext}>Confirm</button>
+                      }
+                  </div>
+
               </section>
             </TextHolder>
           </DocumentTitle>

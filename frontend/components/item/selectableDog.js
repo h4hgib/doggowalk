@@ -40,13 +40,13 @@ export default class SelectionDogItem extends ShallowComponent {
       return (
         <div key={item._id} className="col-sm-6 col-md-3">
           <div className={`panel panel-default ${this.state.isSelected ? "panel__selected panel-default__selected" : ""}`} key={item._id} onClick={() => this.handleSelection(item._id)}>
-            <div className="panel-heading">
+            <div className={`panel-heading ${this.state.isSelected ? "panel-heading__selected" : ""}`}>
               <h4 className="panel-title">{item.name}</h4>
             </div>
             <div className="panel-body text-center nopadding">
               <img className="front-image" src={item.image} height="200px" width="200px"/>
             </div>
-            <div className="panel-footer">
+            <div className={`panel-footer ${this.state.isSelected ? "panel-footer__selected" : ""}`}>
               <div className="clearfix">
                  {sadorhappy}
                 <p>{`Last time walked: ${Math.trunc(Math.random() * (20 - 1) + 1)} days`}</p>
