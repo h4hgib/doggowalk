@@ -168,7 +168,7 @@ export default class Book extends Component {
                                id="people" className="form-control text-input-data__small"/>
                         <br/>
                         <span>
-                            <label>Are you an expert?</label><input type="checkbox" id="expertbox" onClick={this.handleClick}/>
+                            <label>Do you have experience with dog walking? &nbsp;</label><input type="checkbox" id="expertbox" onClick={this.handleClick}/>
                         </span>
                     </div>
                 );

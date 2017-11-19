@@ -12,11 +12,9 @@ export default class DogItem extends ShallowComponent {
 		let item = this.props.item
 
 		var today = new Date();
-		console.log(item.last_time_walked)
 		var last_time_walked = new Date(item.last_time_walked);
 		var shouldTheDogBeWalked = Date.now() - last_time_walked;
 		var shouldTheDogBeWalkedInDays = shouldTheDogBeWalked/1000/60/60/24
-		console.log(shouldTheDogBeWalkedInDays)
 
 	  var sadorhappy;
 	  if (shouldTheDogBeWalkedInDays > 5) {

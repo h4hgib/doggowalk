@@ -28,13 +28,17 @@ export default class SelectionDogItem extends ShallowComponent {
 
   render() {
     let item = this.props.item
+      var today = new Date();
+      var last_time_walked = new Date(item.last_time_walked);
+      var shouldTheDogBeWalked = Date.now() - last_time_walked;
+      var shouldTheDogBeWalkedInDays = shouldTheDogBeWalked/1000/60/60/24
 
-  var sadorhappy;
-  if (1<0) {
-    sadorhappy =  <img src="../public/sad_doggo.png" height="33" width="38" title="Not walked"></img>;
-  } else {
-    sadorhappy =  <img src="../public/happy_doggo.png" height="33" width="38" title="Recently walked"></img>;
-  }
+      var sadorhappy;
+      if (shouldTheDogBeWalkedInDays > 5) {
+          sadorhappy =  <img src="../public/sad_doggo.png" height="33" width="38" title="Not walked"></img>;
+      } else {
+          sadorhappy =  <img src="../public/happy_doggo.png" height="33" width="38" title="Recently walked"></img>;
+      }
 
     if (item) {
       return (
@@ -49,7 +53,7 @@ export default class SelectionDogItem extends ShallowComponent {
             <div className={`panel-footer ${this.state.isSelected ? "panel-footer__selected" : ""}`}>
               <div className="clearfix">
                  {sadorhappy}
-                <p>{`Last time walked: ${Math.trunc(Math.random() * (20 - 1) + 1)} days`}</p>
+                <p>{`Last time walked: ${Math.trunc(shouldTheDogBeWalkedInDays)} days`}</p>
                 <div className="btn-group btn-group-sm pull-right">
                   <Link to="dog-detail" params={{id: item._id}} className="btn btn-blue" title="Detail">
                     <span className="fa fa-eye"></span>
