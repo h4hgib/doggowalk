@@ -117,39 +117,47 @@ export default class DogDetail extends DeepComponent {
                     <img src={item.image} width="300px"/>
                   </div>
                 </div>
-                <div className="col-xs-6">
-                  <h1 className="nomargin-top">{item.name}</h1>
-                  <dl>
-                    <dt>Name</dt>
-                    <dd className='secondTitle'>{item.name}</dd>
-                    <dt>Gender</dt>
-                    <dd className='secondTitle'>{gender}</dd>
-                    <dt>Age</dt>
-                    <dd className='secondTitle'>{age} years old</dd>
-                    <dt>Strength</dt>
-                    <dd className='secondTitle'>{item.strength}</dd>
-                    <dt>Size</dt>
-                    <dd className='secondTitle'>{item.size}</dd>
-                    <dt>Social Level</dt>
-                    <dd className='secondTitle'>{item.social_level}</dd>
-                    <dt>Activity Level</dt>
-                    <dd className='secondTitle'>{item.activity_level}</dd>
-                    <dt>More info</dt>
-                    <dd><li><a href={item.description}>{item.description}</a></li></dd>
-                    <dt>Gets Along With:</dt>
-                    <dd>
-                    {getsAlongImgs.map(obj =>
-                      <a href={obj.link}><img className='getsAlongImg' src={obj.src}/></a>
-                    )}
-                    </dd>
-                  </dl>
-                </div>
+                  <div className="col-xs-6">
+                      <h1 className="nomargin-top">{item.name}</h1>
+                      <div className="row">
+                          <div className="col-xs-6">
+                              <dl>
+                                  <dt>Gender</dt>
+                                  <dd className='secondTitle'>{gender}</dd>
+                                  <dt>Age</dt>
+                                  <dd className='secondTitle'>{age} years old</dd>
+                                  <dt>Strength</dt>
+                                  <dd className='secondTitle'>{item.strength}</dd>
+                              </dl>
+                          </div>
+                          <div className="col-xs-6">
+                              <dl>
+                                  <dt>Size</dt>
+                                  <dd className='secondTitle'>{item.size}</dd>
+                                  <dt>Social Level</dt>
+                                  <dd className='secondTitle'>{item.social_level}</dd>
+                                  <dt>Activity Level</dt>
+                                  <dd className='secondTitle'>{item.activity_level}</dd>
+                              </dl>
+                          </div>
+                      </div>
+                      <label>More info: </label><a href={item.description}>{item.description}</a>
+                      <br/>
+                      <br/>
+                      <p>Gets Along With:</p>
+                      {getsAlongImgs.map(obj =>
+                          <a href={obj.link}><img className='getsAlongImg' src={obj.src}/></a>
+                      )}
+                  </div>
                   <div className="col-xs-3">
                       <h3>Previous walks</h3>
                       <img src={`../public/route${this.state.actualRoute}.png`} width="200px" height="200px"/>
                       <p>{this.state.date}</p>
-                      <button className="btn btn-default" type="button" onClick={() => this.changeRoute(-1)}>Prev</button>
-                      <button className="btn btn-default" type="button" onClick={() => this.changeRoute(1)}>Next</button>
+                      <button className="btn btn-default route-next-button" type="button" onClick={() => this.changeRoute(-1)}>Prev</button>
+                      <button className="btn btn-default route-next-button" type="button" onClick={() => this.changeRoute(1)}>Next</button>
+                      <br/>
+                      <button className="btn btn-default route-btn" type="button">Upload Route</button>
+                      <button className="btn btn-default route-btn route-btn__media" type="button">Media</button>
                   </div>
               </div>
             </section>
